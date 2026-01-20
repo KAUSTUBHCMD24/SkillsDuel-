@@ -1,11 +1,12 @@
 import React, { useEffect, useState } from 'react';
-import { useSearchParams } from 'react-router-dom';
+import { useSearchParams, useNavigate } from 'react-router-dom';
 import io from 'socket.io-client';
 
 const socket = io('https://skillsduel-webservice.onrender.com');
 
 const Game = () => {
     const [searchParams] = useSearchParams();
+    const navigate = useNavigate();
     const category = searchParams.get('category') || 'Technical';
 
     // UI State
@@ -233,8 +234,8 @@ const Game = () => {
                             <div className="sd-loading-spinner" style={{ margin: '1rem auto' }}></div>
                         ) : (
                             <>
-                                <button className="sd-btn sd-btn-primary" onClick={() => window.location.href = '/'}>Return Home</button>
-                                <button className="sd-btn sd-btn-outline" onClick={() => window.location.href = '/leaderboard'} style={{ marginLeft: '1rem' }}>View Leaderboard</button>
+                                <button className="sd-btn sd-btn-primary" onClick={() => navigate('/')}>Return Home</button>
+                                <button className="sd-btn sd-btn-outline" onClick={() => navigate('/leaderboard')} style={{ marginLeft: '1rem' }}>View Leaderboard</button>
                             </>
                         )}
                     </div>
@@ -251,7 +252,7 @@ const Game = () => {
                     <div className="sd-loading-spinner" style={{ margin: '2rem auto' }}></div>
                     <h3>{status}</h3>
                     <p style={{ color: '#778da9' }}>Category: {category}</p>
-                    <button className="sd-btn sd-btn-ghost" onClick={() => window.location.href = '/'} style={{ marginTop: '1rem' }}>Cancel</button>
+                    <button className="sd-btn sd-btn-ghost" onClick={() => navigate('/')} style={{ marginTop: '1rem' }}>Cancel</button>
                 </div>
             </div>
         );

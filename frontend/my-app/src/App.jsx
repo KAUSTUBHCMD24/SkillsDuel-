@@ -149,7 +149,7 @@ function AppContent() {
           <Link to="/" className={isActive('/')}>Play</Link>
           <Link to="/leaderboard" className={isActive('/leaderboard')}>Leaderboard</Link>
           <Link to="/rewards" className={isActive('/rewards')}>Rewards</Link>
-
+          <Link to="/admin" className={isActive('/admin')}>Admin</Link>
         </nav>
 
         <div className="sd-header-actions">

@@ -1,0 +1,131 @@
+/* Glassmorphism Leaderboard Styles */
+
+.sd-glass-panel {
+    background: rgba(255, 255, 255, 0.05);
+    /* Very subtle white tint */
+    backdrop-filter: blur(16px);
+    -webkit-backdrop-filter: blur(16px);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    border-radius: var(--radius-lg);
+    padding: var(--spacing-xl);
+    box-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.3);
+    margin-bottom: var(--spacing-xl);
+}
+
+.sd-search-container {
+    position: relative;
+    margin-bottom: var(--spacing-xl);
+    width: 100%;
+    max-width: 600px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.sd-search-input {
+    width: 100%;
+    padding: 16px 24px;
+    border-radius: 50px;
+    /* Fully rounded pill shape */
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    background: rgba(0, 0, 0, 0.2);
+    color: var(--alabaster-grey);
+    font-size: 1.1rem;
+    transition: all 0.3s ease;
+    backdrop-filter: blur(10px);
+}
+
+.sd-search-input:focus {
+    background: rgba(0, 0, 0, 0.4);
+    border-color: var(--dusk-blue);
+    outline: none;
+    box-shadow: 0 0 0 4px rgba(76, 201, 240, 0.1);
+}
+
+.sd-search-input::placeholder {
+    color: var(--dusty-denim);
+}
+
+.sd-leaderboard-table {
+    width: 100%;
+    border-collapse: separate;
+    border-spacing: 0 8px;
+    /* Spacing between rows */
+}
+
+.sd-leaderboard-table th {
+    padding: var(--spacing-md) var(--spacing-lg);
+    text-align: left;
+    color: var(--dusty-denim);
+    font-weight: 600;
+    text-transform: uppercase;
+    font-size: 0.75rem;
+    letter-spacing: 1.5px;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+    margin-bottom: 10px;
+}
+
+.sd-leaderboard-row td {
+    padding: var(--spacing-md) var(--spacing-lg);
+    background: rgba(255, 255, 255, 0.03);
+    transition: all 0.2s ease;
+    vertical-align: middle;
+}
+
+.sd-leaderboard-row:hover td {
+    background: rgba(255, 255, 255, 0.08);
+    /* Lighter on hover */
+    transform: scale(1.0);
+    /* Keep scale 1 to avoid blurry text, just change bg */
+}
+
+.sd-leaderboard-row td:first-child {
+    border-top-left-radius: var(--radius-md);
+    border-bottom-left-radius: var(--radius-md);
+}
+
+.sd-leaderboard-row td:last-child {
+    border-top-right-radius: var(--radius-md);
+    border-bottom-right-radius: var(--radius-md);
+    text-align: right;
+}
+
+.sd-rank {
+    font-weight: 800;
+    font-size: 1.1rem;
+    color: var(--dusty-denim);
+    width: 30px;
+    display: inline-block;
+    text-align: center;
+}
+
+.sd-medal-icon {
+    font-size: 1.5rem;
+    /* Medium-sized for medals */
+    display: inline-block;
+    vertical-align: middle;
+    line-height: 1;
+}
+
+.sd-rank-gold {
+    animation: goldShimmer 2s infinite linear;
+    position: relative;
+    display: inline-block;
+}
+
+/* Gold Shimmer/Shine Animation */
+@keyframes goldShimmer {
+    0% {
+        text-shadow: 0 0 5px rgba(255, 215, 0, 0.5);
+        transform: scale(1);
+    }
+
+    50% {
+        text-shadow: 0 0 20px rgba(255, 215, 0, 0.8), 0 0 10px rgba(255, 255, 255, 0.6);
+        transform: scale(1.1);
+    }
+
+    100% {
+        text-shadow: 0 0 5px rgba(255, 215, 0, 0.5);
+        transform: scale(1);
+    }
+}

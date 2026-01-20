@@ -8,7 +8,7 @@ import './App.css'
 
 import io from 'socket.io-client';
 
-const socket = io('http://localhost:5001');
+const socket = io('https://skillsduel-webservice.onrender.com');
 
 function AppContent() {
   const [showLoginModal, setShowLoginModal] = useState(false);
@@ -33,7 +33,7 @@ function AppContent() {
 
   useEffect(() => {
     // Initial Fetch
-    fetch('http://localhost:5001/api/stats')
+    fetch('https://skillsduel-webservice.onrender.com/api/stats')
       .then(res => res.json())
       .then(data => setStats(data))
       .catch(err => console.error("Failed to load stats", err));
@@ -49,7 +49,7 @@ function AppContent() {
         }));
       } else {
         // Fallback re-fetch
-        fetch('http://localhost:5001/api/stats')
+        fetch('https://skillsduel-webservice.onrender.com/api/stats')
           .then(res => res.json())
           .then(data => setStats(data));
       }
@@ -66,7 +66,7 @@ function AppContent() {
     setIsLoading(true);
 
     try {
-      const response = await fetch('http://localhost:5001/api/auth/login', {
+      const response = await fetch('https://skillsduel-webservice.onrender.com/api/auth/login', {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify(loginData),
@@ -96,7 +96,7 @@ function AppContent() {
     setIsLoading(true);
 
     try {
-      const response = await fetch('http://localhost:5001/api/auth/register', {
+      const response = await fetch('https://skillsduel-webservice.onrender.com/api/auth/register', {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify(signupData),

@@ -14,7 +14,7 @@ const Admin = () => {
     const fetchQuestions = async () => {
         try {
             // Fetch validation - grab Technical by default or all if we had an endpoint
-            const res = await fetch('http://localhost:5001/api/questions/Technical');
+            const res = await fetch('https://skillsduel-webservice.onrender.com/api/questions/Technical');
             const data = await res.json();
             if (Array.isArray(data)) setExistingQuestions(data);
         } catch (err) {
@@ -31,7 +31,7 @@ const Admin = () => {
         setStatus('Adding...');
 
         try {
-            const res = await fetch('http://localhost:5001/api/questions/add', {
+            const res = await fetch('https://skillsduel-webservice.onrender.com/api/questions/add', {
                 method: 'POST',
                 headers: { 'Content-Type': 'application/json' },
                 body: JSON.stringify(question)

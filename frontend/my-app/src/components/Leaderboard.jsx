@@ -13,8 +13,8 @@ const Leaderboard = () => {
     const fetchUsers = async (query = '') => {
         try {
             const url = query
-                ? `http://localhost:5001/api/users?search=${encodeURIComponent(query)}`
-                : 'http://localhost:5001/api/users';
+                ? `https://skillsduel-webservice.onrender.com/api/users?search=${encodeURIComponent(query)}`
+                : 'https://skillsduel-webservice.onrender.com/api/users';
 
             const res = await fetch(url);
             const data = await res.json();

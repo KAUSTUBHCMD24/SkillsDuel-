@@ -2,7 +2,7 @@ import React, { useEffect, useState } from 'react';
 import { useSearchParams } from 'react-router-dom';
 import io from 'socket.io-client';
 
-const socket = io('http://localhost:5001');
+const socket = io('https://skillsduel-webservice.onrender.com');
 
 const Game = () => {
     const [searchParams] = useSearchParams();
@@ -176,7 +176,7 @@ const Game = () => {
 
         const result = finalScore > opponentScore ? 'Win' : (finalScore < opponentScore ? 'Loss' : 'Draw'); // optimistic result
 
-        fetch('http://localhost:5001/api/users/update-stats', {
+        fetch('https://skillsduel-webservice.onrender.com/api/users/update-stats', {
             method: 'POST',
             headers: { 'Content-Type': 'application/json' },
             body: JSON.stringify({
